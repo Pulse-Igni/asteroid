@@ -4,24 +4,20 @@
 import pygame
 from constants import *
 
-pygame.init()
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-
 def main():
-    game_loop()
-    pygame.quit()
+    pygame.init()
+    clock = pygame.time.Clock()
+    dt = 0
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-def game_loop():
-    
     while True: 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
             
-        black = (0, 0, 0)
-        screen.fill(black)
+        screen.fill("black")
         pygame.display.flip()
-
+        dt = clock.tick(60)/1000
 
 
 if __name__ == "__main__":
